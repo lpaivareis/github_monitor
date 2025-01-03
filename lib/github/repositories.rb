@@ -9,12 +9,6 @@ module Github
     end
 
     def fetch_multiple_repositories
-      requests = [
-        { path: '/repos/rails/rails', options: {} },
-        { path: '/repos/facebook/react', options: {} },
-        { path: '/repos/django/django', options: {} }
-      ]
-
       concurrent_requests(requests)
     end
   end

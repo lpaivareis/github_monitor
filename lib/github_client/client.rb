@@ -18,9 +18,9 @@ module GithubClient
     end
 
     def concurrent_requests(requests)
-      check_rate_limit
       ractors_requests(requests).map do |request|
         begin
+          check_rate_limit
           { result: client.get(request[:path], request[:options]), error: nil }
         rescue Octokit::Error => error
           { result: nil, error: "Error fetching #{request[:path]}: #{error.message}" }
