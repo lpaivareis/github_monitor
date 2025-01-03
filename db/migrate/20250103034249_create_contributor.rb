@@ -1,0 +1,12 @@
+class CreateContributor < ActiveRecord::Migration[8.0]
+  def change
+    create_table :contributors do |t|
+      t.string :name, null: false
+      t.string :username, null: false
+      t.string :avatar
+      t.string :html_url, null: false
+
+      t.timestamps
+    end
+  end
+end

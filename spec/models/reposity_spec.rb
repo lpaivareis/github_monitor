@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe Repository, type: :model do
   describe 'associations' do
     it { should belong_to(:owner) }
+
+    it { should have_many(:repository_contributors).dependent(:destroy) }
+    it { should have_many(:contributors).through(:repository_contributors) }
   end
 
   describe 'validations' do
