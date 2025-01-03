@@ -4,11 +4,7 @@ module Github
       get("/repos/#{owner}/#{repo_name}")
     end
 
-    def fetch_repository_topics(owner, repo_name)
-      get("/repos/#{owner}/#{repo_name}/topics")
-    end
-
-    def fetch_multiple_repositories
+    def fetch_multiple_repositories(requests)
       concurrent_requests(requests)
     end
   end
